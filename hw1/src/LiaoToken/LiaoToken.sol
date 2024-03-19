@@ -63,6 +63,7 @@ contract LiaoToken is IERC20 {
         require(_balances[msg.sender] >= amount);
         _balances[msg.sender] -= amount;
         _balances[to] += amount;
+        emit Transfer(msg.sender, to, amount);
         return true;
     }
 
