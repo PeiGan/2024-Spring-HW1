@@ -76,6 +76,7 @@ contract NFinTech is IERC721 {
 
     function setApprovalForAll(address operator, bool approved) external {
         // TODO: please add your implementaiton here
+        require(operator != address(0));
         _operatorApproval[msg.sender][operator] = approved;
         emit ApprovalForAll(msg.sender, operator, approved);
     }
