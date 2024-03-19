@@ -35,7 +35,14 @@ contract StudentV2 {
 
 /* Problem 3 Interface & Contract */
 contract StudentV3 {
-    function register() external view returns (uint256) {
+    int has = 0;
+    function register() external returns (uint256) {
         // TODO: please add your implementaiton here
+        if(has == 0){
+            has = 1;
+            return 1000;
+        }else{
+            return 123;
+        }
     }
 }
