@@ -100,8 +100,9 @@ contract NFinTech is IERC721 {
 
     function transferFrom(address from, address to, uint256 tokenId) public {
         // TODO: please add your implementaiton here
-        require(_owner[tokenId] == msg.sender || _tokenApproval[tokenId] == msg.sender);
         require(to != address(0));
+        require(_owner[tokenId] == from);
+        require(_tokenApproval[tokenId] == msg.sender || _operatorApproval[from][msg.sender]);
         _balances[from] -= 1;
         _balances[to] += 1;
         _owner[tokenId] = to;
