@@ -111,11 +111,17 @@ contract NFinTech is IERC721 {
 
     function safeTransferFrom(address from, address to, uint256 tokenId, bytes calldata data) public {
         // TODO: please add your implementaiton here
+        require(to != address(0));
         transferFrom(from, to, tokenId);
+        bytes4 ret = IERC721TokenReceiver(to).onERC721Received(msg.sender, to, tokenId, "");
+        require(ret != keccak256("approve(address,uint256)"));
     }
 
     function safeTransferFrom(address from, address to, uint256 tokenId) public {
         // TODO: please add your implementaiton here
+        require(to != address(0));
         transferFrom(from, to, tokenId);
+        bytes4 ret = IERC721TokenReceiver(to).onERC721Received(msg.sender, to, tokenId, "");
+        require(ret != keccak256("approve(address,uint256)"));
     }
 }
