@@ -90,7 +90,7 @@ contract NFinTech is IERC721 {
         // TODO: please add your implementaiton here
         require(msg.sender == _owner[tokenId] || _operatorApproval[_owner[tokenId]][msg.sender] == true);
         _tokenApproval[tokenId] = to;
-        emit Approval(msg.sender, to, tokenId);
+        emit Approval(_owner[tokenId], to, tokenId);
     }
 
     function getApproved(uint256 tokenId) public view returns (address operator) {
