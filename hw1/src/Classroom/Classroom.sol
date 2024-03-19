@@ -25,6 +25,11 @@ interface IClassroomV2 {
 contract StudentV2 {
     function register() external view returns (uint256) {
         // TODO: please add your implementaiton here
+        if(IClassroomV2(msg.sender).isEnrolled() == false){
+            return 1000;
+        }else{
+            return 123;
+        }
     }
 }
 
